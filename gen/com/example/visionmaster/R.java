@@ -22,14 +22,24 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int slotmachine=0x7f020001;
+        public static final int bac=0x7f020000;
+        public static final int corners=0x7f020001;
+        public static final int edit=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int penguins=0x7f020004;
+        public static final int slotmachine=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f080000;
+        public static final int action_settings=0x7f080005;
+        public static final int mainLinearLayout=0x7f080001;
+        public static final int patientId=0x7f080002;
+        public static final int physicianid=0x7f080003;
+        public static final int saveandsubmit=0x7f080004;
+        public static final int textTitle=0x7f080000;
     }
     public static final class layout {
-        public static final int mainpage=0x7f030000;
+        public static final int loginpage=0x7f030000;
+        public static final int mainpage=0x7f030001;
     }
     public static final class menu {
         public static final int main_page=0x7f070000;
