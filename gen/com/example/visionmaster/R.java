@@ -39,7 +39,9 @@ public final class R {
         public static final int twonine=0x7f02000e;
     }
     public static final class id {
-        public static final int action_settings=0x7f080022;
+        public static final int action_settings=0x7f080032;
+        public static final int btnnext=0x7f080031;
+        public static final int btnstop=0x7f080030;
         public static final int button1=0x7f08001c;
         public static final int button2=0x7f08001d;
         public static final int button3=0x7f08001e;
@@ -53,10 +55,12 @@ public final class R {
         public static final int colorTest=0x7f080000;
         public static final int demoTour=0x7f08000b;
         public static final int finish=0x7f080019;
+        public static final int home=0x7f080023;
         public static final int image1=0x7f080001;
         public static final int image2=0x7f08001b;
         public static final int image3=0x7f080021;
         public static final int image4=0x7f080002;
+        public static final int linearBackground=0x7f080025;
         public static final int mainLinearLayout=0x7f080004;
         public static final int nexttest=0x7f08001a;
         public static final int notsure=0x7f080020;
@@ -64,6 +68,7 @@ public final class R {
         public static final int physicianid=0x7f080006;
         public static final int result=0x7f080014;
         public static final int saveandsubmit=0x7f080007;
+        public static final int seeText=0x7f08002f;
         public static final int sendemail=0x7f080008;
         public static final int startTest=0x7f08000a;
         public static final int text1=0x7f080016;
@@ -72,7 +77,18 @@ public final class R {
         public static final int textTitle=0x7f080003;
         public static final int textView1=0x7f08000c;
         public static final int textView2=0x7f08000d;
+        public static final int textViewdetail=0x7f080022;
         public static final int textViewsLayout=0x7f080015;
+        public static final int totest=0x7f080024;
+        public static final int tv1=0x7f080026;
+        public static final int tv2=0x7f080028;
+        public static final int tv3=0x7f08002a;
+        public static final int tv4=0x7f080029;
+        public static final int tv5=0x7f08002b;
+        public static final int tv6=0x7f08002c;
+        public static final int tv7=0x7f08002d;
+        public static final int tv8=0x7f08002e;
+        public static final int tv9=0x7f080027;
         public static final int welcomeText=0x7f080009;
     }
     public static final class layout {
@@ -91,6 +107,8 @@ public final class R {
         public static final int selectionactivity2=0x7f03000c;
         public static final int selectionactivity3=0x7f03000d;
         public static final int thirdpage=0x7f03000e;
+        public static final int visiondialoginflate=0x7f03000f;
+        public static final int visualacuity=0x7f030010;
     }
     public static final class menu {
         public static final int main_page=0x7f070000;
