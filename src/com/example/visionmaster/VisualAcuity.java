@@ -18,7 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class VisionAcuity extends Activity {
+public class VisualAcuity extends Activity {
 	TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, seeText;
 	TextToSpeech TexttoSpeech, TexttoSpeech1;
 	Button stop, next;
@@ -52,7 +52,7 @@ public class VisionAcuity extends Activity {
 		stop = (Button) findViewById(R.id.btnstop);
 		final String speech = "Kindly place the device, 30 cm away from your eyes and press Ok";
 		final String stop_speech = "You are unable to clear this test.";
-		TexttoSpeech = new TextToSpeech(VisionAcuity.this,
+		TexttoSpeech = new TextToSpeech(VisualAcuity.this,
 				new TextToSpeech.OnInitListener() {
 
 					@Override
@@ -68,7 +68,7 @@ public class VisionAcuity extends Activity {
 				});
 
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-				VisionAcuity.this);
+				VisualAcuity.this);
 		// set title
 
 		// set dialog message
@@ -217,35 +217,35 @@ public class VisionAcuity extends Activity {
 					}
 				} else if (next.getText().toString().equals("Finish")) {
 					LayoutInflater factory = LayoutInflater
-							.from(VisionAcuity.this);
+							.from(VisualAcuity.this);
 					final View view = factory.inflate(
 							R.layout.visiondialoginflate, null);
 					final Button home = (Button) view.findViewById(R.id.home);
 					final TextView textViewdetail = (TextView) view
 							.findViewById(id.textViewdetail);
-					textViewdetail.setText("Kindly proceed to the main page.");
+					textViewdetail.setText("Kindly proceed to next test.");
 					final Button nexttest = (Button) view
 							.findViewById(R.id.totest);
 					home.setVisibility(Button.GONE);
-					nexttest.setText("Main Page");
-					nexttest.setOnClickListener(new OnClickListener() {
+					nexttest.setText("Next Test");
+//					nexttest.setOnClickListener(new OnClickListener() {
 
-						@Override
-						public void onClick(View v) {
-							// TODO Auto-generated method stub
-							Intent intent = new Intent(VisionAcuity.this,
-									MainPage.class);
-							startActivity(intent);
-						}
-					});
-					final TextView alerttitle = new TextView(VisionAcuity.this);
+//						@Override
+//						public void onClick(View v) {
+//							// TODO Auto-generated method stub
+//							Intent intent = new Intent(VisualAcuity.this,
+//									MotorTest.class);
+//							startActivity(intent);
+//						}
+//					});
+					final TextView alerttitle = new TextView(VisualAcuity.this);
 					// You Can Customise your Title here
 					alerttitle.setText("Congrats! You have cleared this Test.");
 					alerttitle.setGravity(Gravity.CENTER);
 					alerttitle.setTextColor(Color.WHITE);
 					alerttitle.setTextSize(20);
 					AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-							VisionAcuity.this);
+							VisualAcuity.this);
 					// set title
 
 					// set dialog message
@@ -269,23 +269,23 @@ public class VisionAcuity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				LayoutInflater factory = LayoutInflater.from(VisionAcuity.this);
+				LayoutInflater factory = LayoutInflater.from(VisualAcuity.this);
 				final View view = factory.inflate(R.layout.visiondialoginflate,
 						null);
 				final Button home = (Button) view.findViewById(R.id.home);
 				final Button gonext = (Button) view.findViewById(R.id.totest);
-				gonext.setOnClickListener(new OnClickListener() {
+//				gonext.setOnClickListener(new OnClickListener() {
+//
+//					@Override
+//					public void onClick(View v) {
+//						// TODO Auto-generated method stub
+//						Intent intent = new Intent(VisualAcuity.this,
+//								MotorTest.class);
+//						startActivity(intent);
+//					}
+//				});
 
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						Intent intent = new Intent(VisionAcuity.this,
-								MainPage.class);
-						startActivity(intent);
-					}
-				});
-
-				final TextView alerttitle = new TextView(VisionAcuity.this);
+				final TextView alerttitle = new TextView(VisualAcuity.this);
 
 				// You Can Customize your Title here
 				alerttitle.setText("You are unable to clear this Test!");
@@ -293,7 +293,7 @@ public class VisionAcuity extends Activity {
 				alerttitle.setTextColor(Color.WHITE);
 				alerttitle.setTextSize(20);
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-						VisionAcuity.this);
+						VisualAcuity.this);
 				// set title
 
 				// set dialog message
@@ -306,7 +306,7 @@ public class VisionAcuity extends Activity {
 
 				// show it
 				alertDialog.show();
-				TexttoSpeech1 = new TextToSpeech(VisionAcuity.this,
+				TexttoSpeech1 = new TextToSpeech(VisualAcuity.this,
 						new TextToSpeech.OnInitListener() {
 
 							@Override
@@ -343,7 +343,7 @@ public class VisionAcuity extends Activity {
 		if (flag) {
 			super.onBackPressed();
 
-			Intent intent = new Intent(VisionAcuity.this, AllTest.class);
+			Intent intent = new Intent(VisualAcuity.this, AllTest.class);
 			startActivity(intent);
 			finish();
 

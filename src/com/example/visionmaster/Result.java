@@ -53,7 +53,8 @@ public class Result extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				Intent intent = new Intent(Result.this, VisualAcuity.class);
+				startActivity(intent);
 			}
 		});
 	}
@@ -76,9 +77,9 @@ public class Result extends Activity {
 							public void onClick(DialogInterface dialog, int id) {
 								// if this button is clicked, close
 								// current activity
-								// Intent intent = new Intent(Result.this,
-								// 		AllTest.class);
-								// startActivity(intent);
+								Intent intent = new Intent(Result.this,
+										AllTest.class);
+								startActivity(intent);
 								finish();
 							}
 						})
