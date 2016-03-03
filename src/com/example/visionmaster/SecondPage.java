@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.visionmaster;
 
 import android.app.Activity;
 import android.content.Intent;
