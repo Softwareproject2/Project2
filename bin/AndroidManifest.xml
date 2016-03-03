@@ -46,7 +46,26 @@
             android:name="com.example.project.VisualAcuity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar" />
-        
+        <activity
+            android:name="com.example.project.FirstPage"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.example.project.SecondPage"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.example.project.ThirdPage"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.example.project.FourthPage"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.example.project.AllTest"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" />
         
         
     </application>
