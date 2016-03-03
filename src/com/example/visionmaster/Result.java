@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.visionmaster;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,7 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.project.R.id;
+import com.example.visionmaster.R.id;
 
 public class Result extends Activity {
 	public static TextView text1, text2, text3;
