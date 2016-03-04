@@ -104,24 +104,25 @@ public final class R {
     }
     public static final class layout {
         public static final int alltest=0x7f030000;
-        public static final int firstpage=0x7f030001;
-        public static final int fourthpage=0x7f030002;
-        public static final int loginpage=0x7f030003;
-        public static final int loginscreen=0x7f030004;
-        public static final int mainpage=0x7f030005;
-        public static final int question1=0x7f030006;
-        public static final int question2=0x7f030007;
-        public static final int question3=0x7f030008;
-        public static final int result=0x7f030009;
-        public static final int secondpage=0x7f03000a;
-        public static final int selectionactivity=0x7f03000b;
-        public static final int selectionactivity1=0x7f03000c;
-        public static final int selectionactivity2=0x7f03000d;
-        public static final int selectionactivity3=0x7f03000e;
-        public static final int settinginflate=0x7f03000f;
-        public static final int thirdpage=0x7f030010;
-        public static final int visiondialoginflate=0x7f030011;
-        public static final int visualacuity=0x7f030012;
+        public static final int demoalltestscreen=0x7f030001;
+        public static final int firstpage=0x7f030002;
+        public static final int fourthpage=0x7f030003;
+        public static final int loginpage=0x7f030004;
+        public static final int loginscreen=0x7f030005;
+        public static final int mainpage=0x7f030006;
+        public static final int question1=0x7f030007;
+        public static final int question2=0x7f030008;
+        public static final int question3=0x7f030009;
+        public static final int result=0x7f03000a;
+        public static final int secondpage=0x7f03000b;
+        public static final int selectionactivity=0x7f03000c;
+        public static final int selectionactivity1=0x7f03000d;
+        public static final int selectionactivity2=0x7f03000e;
+        public static final int selectionactivity3=0x7f03000f;
+        public static final int settinginflate=0x7f030010;
+        public static final int thirdpage=0x7f030011;
+        public static final int visiondialoginflate=0x7f030012;
+        public static final int visualacuity=0x7f030013;
     }
     public static final class menu {
         public static final int main_page=0x7f070000;
