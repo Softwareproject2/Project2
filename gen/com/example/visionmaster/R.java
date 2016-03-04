@@ -29,18 +29,19 @@ public final class R {
         public static final int captureimage=0x7f020004;
         public static final int corners=0x7f020005;
         public static final int edit=0x7f020006;
-        public static final int fifteen=0x7f020007;
-        public static final int firstimage=0x7f020008;
-        public static final int fortytwo=0x7f020009;
-        public static final int glossy=0x7f02000a;
-        public static final int ic_launcher=0x7f02000b;
-        public static final int mtest=0x7f02000c;
-        public static final int purplebac=0x7f02000d;
-        public static final int questions=0x7f02000e;
-        public static final int twentyfive=0x7f02000f;
-        public static final int twentysix=0x7f020010;
-        public static final int twonine=0x7f020011;
-        public static final int visionacuity=0x7f020012;
+        public static final int eye2=0x7f020007;
+        public static final int fifteen=0x7f020008;
+        public static final int firstimage=0x7f020009;
+        public static final int fortytwo=0x7f02000a;
+        public static final int glossy=0x7f02000b;
+        public static final int ic_launcher=0x7f02000c;
+        public static final int mtest=0x7f02000d;
+        public static final int purplebac=0x7f02000e;
+        public static final int questions=0x7f02000f;
+        public static final int twentyfive=0x7f020010;
+        public static final int twentysix=0x7f020011;
+        public static final int twonine=0x7f020012;
+        public static final int visionacuity=0x7f020013;
     }
     public static final class id {
         public static final int action_settings=0x7f080039;
