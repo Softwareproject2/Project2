@@ -43,18 +43,12 @@ public class AllTest extends Activity implements OnClickListener {
 			intent = new Intent(AllTest.this, VisualAcuity.class);
 			startActivity(intent);
 			break;
-//		case R.id.cameraApplication:
-//			intent = new Intent(AllTest.this, CameraActivity.class);
-//			startActivity(intent);
-//			break;
+	
 		case R.id.questions:
 			intent = new Intent(AllTest.this, Question1.class);
 			startActivity(intent);
 			break;
-//		case R.id.motorTest:
-//			intent = new Intent(AllTest.this, MotorTest.class);
-//			startActivity(intent);
-//			break;
+	
 		default:
 			break;
 		}
