@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 public class VisualAcuity extends Activity {
 	TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, seeText;
-	TextToSpeech TexttoSpeech, TexttoSpeech1;
 	Button stop, next;
 	boolean flag = false;
 
@@ -52,21 +51,7 @@ public class VisualAcuity extends Activity {
 		stop = (Button) findViewById(R.id.btnstop);
 		final String speech = "Kindly place the device, 30 cm away from your eyes and press Ok";
 		final String stop_speech = "You are unable to clear this test.";
-		TexttoSpeech = new TextToSpeech(VisualAcuity.this,
-				new TextToSpeech.OnInitListener() {
-
-					@Override
-					public void onInit(int status) {
-						if (status != TextToSpeech.ERROR) {
-							TexttoSpeech.setLanguage(Locale.ENGLISH);
-							TexttoSpeech.setSpeechRate(1f);
-						}
-						String random = speech;
-						TexttoSpeech.speak(random, TextToSpeech.QUEUE_FLUSH,
-								null);
-					}
-				});
-
+		
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 				VisualAcuity.this);
 		// set title
@@ -78,8 +63,6 @@ public class VisualAcuity extends Activity {
 				.setCancelable(false)
 				.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						TexttoSpeech.shutdown();
-						TexttoSpeech.stop();
 						dialog.cancel();
 					}
 				});
@@ -306,28 +289,12 @@ public class VisualAcuity extends Activity {
 
 				// show it
 				alertDialog.show();
-				TexttoSpeech1 = new TextToSpeech(VisualAcuity.this,
-						new TextToSpeech.OnInitListener() {
-
-							@Override
-							public void onInit(int status) {
-								if (status != TextToSpeech.ERROR) {
-									TexttoSpeech1.setLanguage(Locale.ENGLISH);
-									TexttoSpeech1.setSpeechRate(1f);
-								}
-								String random = stop_speech;
-								TexttoSpeech1.speak(random,
-										TextToSpeech.QUEUE_FLUSH, null);
-							}
-						});
 				home.setOnClickListener(new OnClickListener() {
 
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						flag = true;
-						TexttoSpeech1.shutdown();
-						TexttoSpeech1.stop();
 						onBackPressed();
 					}
 				});
