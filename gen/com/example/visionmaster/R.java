@@ -44,9 +44,7 @@ public final class R {
         public static final int visionacuity=0x7f020013;
     }
     public static final class id {
-        public static final int action_settings=0x7f080039;
-        public static final int btnnext=0x7f080038;
-        public static final int btnstop=0x7f080037;
+        public static final int action_settings=0x7f080037;
         public static final int button1=0x7f080021;
         public static final int button2=0x7f080022;
         public static final int button3=0x7f080023;
