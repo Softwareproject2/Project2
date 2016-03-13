@@ -44,7 +44,9 @@ public final class R {
         public static final int visionacuity=0x7f020013;
     }
     public static final class id {
-        public static final int action_settings=0x7f080037;
+        public static final int action_settings=0x7f080038;
+        public static final int btnnext=0x7f080037;
+        public static final int btnstop=0x7f080036;
         public static final int button1=0x7f080021;
         public static final int button2=0x7f080022;
         public static final int button3=0x7f080023;
@@ -76,7 +78,6 @@ public final class R {
         public static final int result=0x7f080019;
         public static final int saveandsubmit=0x7f08000b;
         public static final int savenewpassword=0x7f080027;
-        public static final int seeText=0x7f080036;
         public static final int sendemail=0x7f08000d;
         public static final int settings=0x7f08000c;
         public static final int startTest=0x7f08000f;

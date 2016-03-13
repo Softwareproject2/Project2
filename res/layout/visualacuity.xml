@@ -83,13 +83,41 @@
             android:text="" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:id="@+id/seeText"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:gravity="center"/>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/purplebac"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnstop"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:text="Stop" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnnext"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:text="Next" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 </LinearLayout>
