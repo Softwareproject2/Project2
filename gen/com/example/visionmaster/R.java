@@ -131,10 +131,11 @@ public final class R {
         public static final int selectionactivity1=0x7f03000e;
         public static final int selectionactivity2=0x7f03000f;
         public static final int selectionactivity3=0x7f030010;
-        public static final int settinginflate=0x7f030011;
-        public static final int thirdpage=0x7f030012;
-        public static final int visiondialoginflate=0x7f030013;
-        public static final int visualacuity=0x7f030014;
+        public static final int sendemailxml=0x7f030011;
+        public static final int settinginflate=0x7f030012;
+        public static final int thirdpage=0x7f030013;
+        public static final int visiondialoginflate=0x7f030014;
+        public static final int visualacuity=0x7f030015;
     }
     public static final class menu {
         public static final int main_page=0x7f070000;
