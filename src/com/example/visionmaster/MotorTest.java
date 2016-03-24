@@ -46,7 +46,11 @@ public class MotorTest extends Activity implements OnTouchListener {
 	Canvas canvas;
 	String email = "kvv230892@gmail.com";
 	Paint paint;
-	
+	private TextView txtStep1Efficiency;
+	private TextView txtStep2Efficiency;
+	private TextView txtStep3Efficiency;
+	private TextView txtStep4Efficiency;
+	private TextView txtAverageEfficiency;
 	boolean back = false;
 	private Timer timer, countDownTimer;
 
@@ -56,18 +60,19 @@ public class MotorTest extends Activity implements OnTouchListener {
 	private double mariginalIncrement = 0;
 	private int leftMargin = 0;
 	private int checkTime = 40;
-	
+
 	private int firstStageEfficiency;
 	private int secondStageEfficiency;
 	private int thirdStageEfficiency;
 	private int fourthStageEfficiency;
 	private int averageEfficiency;
-	
 	TextToSpeech TexttoSpeech, five, four, three, two, one, zero;
 	private long totalTime, touchTime;
-	
-	
+
 	private Rect outRect;
+	private SimpleDateFormat format = new SimpleDateFormat(
+			"dd/MM/yyyy HH:mm:ss");
+
 	
 	
 	@Override
@@ -107,7 +112,7 @@ public class MotorTest extends Activity implements OnTouchListener {
 		layoutParams.topMargin = 10;
 		// layout.addView(imageView, layoutParams);
 
-		linearButton = (LinearLayout) findViewById(id.linearButton);
+		linearButton = (LinearLayout) findViewById(R.id.linearButton);
 
 		countDownView = (TextView) findViewById(R.id.txt_count_down);
 		getTextViews();
@@ -315,62 +320,292 @@ public class MotorTest extends Activity implements OnTouchListener {
 
 	};
 	
+	/**
+	 * This method is used to move the image from left to right.
+	 */
+
+	private void addImageView() {
+		runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+
+				layout.removeAllViews();
+
+				leftMargin = (int) (leftMargin + mariginalIncrement);
+
+				if (leftMargin >= width) {
+					timer.cancel();
+
+					long stepTime = System.currentTimeMillis() - totalTime;
+
+					Log.e("Time", "Time 1 :: " + stepTime + " Touch time 1 :: "
+							+ touchTime);
+
+					firstStageEfficiency = calculatePercentage(stepTime,
+							touchTime);
+
+					txtStep1Efficiency.setText(getEfficiencyText(1,
+							String.valueOf(firstStageEfficiency) + "%"));
+					Log.e("KUJHFHURWKFHCWEFUDJ", "" + firstStageEfficiency);
+
+					txtAverageEfficiency.setText(getEfficiencyText(0,
+							getAverageEfficiency(firstStageEfficiency, 1)));
+
+					totalTime = System.currentTimeMillis();
+					// x = System.currentTimeMillis();
+					touchTime = 0;
+
+					Log.e("TOUCH CHANGE", "TOUCH CHNAGE :: " + touchTime);
+
+					timer = new Timer();
+					timer.schedule(lastTask, 0, timeInterval);
+				}
+				imageView = new ImageView(MotorTest.this);
+				imageView.setImageResource(R.drawable.ball);
+				LayoutParams layoutParams = new LayoutParams(
+						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				layoutParams.leftMargin = leftMargin;
+				layoutParams.topMargin = 70;
+
+				layout.addView(imageView, layoutParams);
+
+			}
+		});
+	}
 	
+	long x = 0;
+	long ix = 0;
+
 	@Override
-	public void onBackPressed(){
-		
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-				MotorTest.this);
-		// set title
-		alertDialogBuilder
-				.setTitle("Warning! All the saved data will be deleted.");
+	public boolean onTouch(View v, MotionEvent event) {
 
-		// set dialog message
-		alertDialogBuilder
-				.setMessage("Do you want to continue ?")
-				.setCancelable(false)
-				.setPositiveButton("Yes",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								// if this button is clicked, close
-								// current activity
-								five.shutdown();
-								five.stop();
-								four.shutdown();
-								four.stop();
-								three.shutdown();
-								three.stop();
-								two.shutdown();
-								two.stop();
-								one.shutdown();
-								one.stop();
-								zero.shutdown();
-								zero.stop();
-								TexttoSpeech.shutdown();
-								TexttoSpeech.stop();
-								Intent intent = new Intent(MotorTest.this,
-										AllTest.class);
-								startActivity(intent);
-								finish();
-							}
-						})
-				.setNegativeButton("No", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						// if this button is clicked, just close
-						// the dialog box and do nothing
-						dialog.cancel();
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+			x = System.currentTimeMillis();
+			Log.e("Elapsed Time", "Elapsed Time 111 :: " + x);
+		} else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+
+			for (int i = 0; i < layout.getChildCount(); i++) {
+				if (layout.getChildAt(i) instanceof ImageView) {
+
+					outRect = new Rect(leftMargin, 50, imageView.getRight(),
+							imageView.getBottom());
+
+					if (outRect
+							.contains((int) event.getX(), (int) event.getY())) {
+
+						ix = System.currentTimeMillis() - x;
+						Log.e("Elapsed Time", "Elapsed Time :: " + ix);
+
+						touchTime += ix;
+						ix = 0;
+						x = System.currentTimeMillis();
+
+						layout.setBackgroundColor(Color.GREEN);
+					} else {
+
+						layout.setBackgroundColor(Color.GRAY);
 					}
-				});
+				}
+			}
+		} else if (event.getAction() == MotionEvent.ACTION_UP) {
+			layout.setBackgroundColor(Color.GRAY);
+		}
+		return true;
+	}
+	/**
+	 * This timer task is used to move the ball from left to right.
+	 */
 
-		// create alert dialog
-		AlertDialog alertDialog = alertDialogBuilder.create();
+	TimerTask task = new TimerTask() {
+		@Override
+		public void run() {
+			addImageView();
+		}
+	};
 
-		// show it
-		alertDialog.show();
+	
+	/**
+	 * This timer task is used to move the ball from right to left.
+	 */
 
+	TimerTask reverseTask = new TimerTask() {
+		@Override
+		public void run() {
+			addReverseImageView();
+		}
+	};
+
+	/**
+	 * This method is used to move the image from right to left.
+	 */
+
+	private void addReverseImageView() {
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				layout.removeAllViews();
+
+				leftMargin = (int) (leftMargin - mariginalIncrement);
+
+				if (leftMargin <= 0) {
+					timer.cancel();
+
+					long stepTime = System.currentTimeMillis() - totalTime;
+
+					Log.e("Time", "Time 3 :: " + stepTime + " Touch time 3 :: "
+							+ touchTime);
+
+					thirdStageEfficiency = calculatePercentage(stepTime,
+							touchTime);
+
+					txtStep3Efficiency.setText(getEfficiencyText(3,
+							String.valueOf(thirdStageEfficiency) + "%"));
+
+					txtAverageEfficiency.setText(getEfficiencyText(
+							0,
+							getAverageEfficiency(firstStageEfficiency
+									+ secondStageEfficiency
+									+ thirdStageEfficiency, 3)));
+
+					totalTime = System.currentTimeMillis();
+
+					// x = System.currentTimeMillis();
+					touchTime = 0;
+					checkTime = 40;
+
+					timer = new Timer();
+					timer.schedule(lastTask2, 0, timeInterval);
+				}
+				
+				imageView = new ImageView(MotorTest.this);
+				imageView.setImageResource(R.drawable.ball);
+				LayoutParams layoutParams = new LayoutParams(
+						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				layoutParams.leftMargin = leftMargin;
+				layoutParams.topMargin = 70;
+
+				layout.addView(imageView, layoutParams);
+
+			}
+		});
 	}
 
+	TimerTask finishTask = new TimerTask() {
+		@Override
+		public void run() {
+			Log.e("DONE", "DONE");
+			timer.cancel();
+		}
+	};
 
+	TimerTask lastTask = new TimerTask() {
+		@Override
+		public void run() {
+			addLastImageView(true);
+			checkTime += timeInterval;
+		}
+	};
+
+	TimerTask lastTask2 = new TimerTask() {
+		@Override
+		public void run() {
+			addLastImageView(false); // //////////////////////////////////////
+			checkTime += timeInterval;
+		}
+	};
+	private void addLastImageView(final boolean isContinue){
+		
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				layout.removeAllViews();
+
+				imageView = new ImageView(MotorTest.this);
+				imageView.setImageResource(R.drawable.ball);
+				LayoutParams layoutParams = new LayoutParams(
+						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				layoutParams.leftMargin = leftMargin;
+				layoutParams.topMargin = 70;
+				layout.addView(imageView, layoutParams);
+
+				if (checkTime == 3000) {
+					timer.cancel();
+
+					long stepTime = System.currentTimeMillis() - totalTime;
+
+					Log.e("Time", "Time 24 :: " + stepTime
+							+ " Touch time 24 :: " + touchTime);
+
+					if (isContinue) {
+						secondStageEfficiency = calculatePercentage(stepTime,
+								touchTime);
+
+						txtStep2Efficiency.setText(getEfficiencyText(2,
+								String.valueOf(secondStageEfficiency) + "%"));
+
+						txtAverageEfficiency.setText(getEfficiencyText(
+								0,
+								getAverageEfficiency(firstStageEfficiency
+										+ secondStageEfficiency, 2)));
+
+						timer = new Timer();
+						timer.schedule(reverseTask, 0, timeInterval);
+
+					} else {
+						fourthStageEfficiency = calculatePercentage(stepTime,
+								touchTime);
+
+						txtStep4Efficiency.setText(getEfficiencyText(4,
+								String.valueOf(fourthStageEfficiency) + "%"));
+
+						averageEfficiency = (firstStageEfficiency
+								+ secondStageEfficiency + thirdStageEfficiency + fourthStageEfficiency) / 4;
+
+						txtAverageEfficiency.setText(getEfficiencyText(
+								0,
+								getAverageEfficiency(firstStageEfficiency
+										+ secondStageEfficiency
+										+ thirdStageEfficiency
+										+ fourthStageEfficiency, 4)));
+
+						layout.removeAllViews();
+
+						layout.setOnTouchListener(null);
+						layout.setBackgroundResource(R.drawable.bac);
+
+						// layout.addView(lineartext);
+						linearButton.setVisibility(View.VISIBLE);
+						layout.addView(linearButton);
+
+						// lineartext.addView(txtStep1Efficiency);
+
+						cameracapture.setVisibility(View.VISIBLE);
+					}
+
+					totalTime = System.currentTimeMillis();
+					// x = System.currentTimeMillis();
+					touchTime = 0;
+				}
+			}
+		});
+		
+	}
+	
+		
+	private int calculatePercentage(long totaltime, long touchedTime) {
+
+		Log.e("Views", "Total Views :: " + totaltime + " Touched Views :: "
+				+ touchedTime);
+
+		int percentage = (int) ((touchedTime * 100) / totaltime);
+
+		if (percentage > 100) {
+			return 100;
+		} else {
+			return percentage;
+		}
+	}
 	private String getEfficiencyText(int step, String efficiency) {
 		if (step == 0) {
 			return "Average Efficiency : " + efficiency;
@@ -378,21 +613,14 @@ public class MotorTest extends Activity implements OnTouchListener {
 			return "Step " + step + " Efficiency : " + efficiency;
 		}
 	}
-
+	
+	
 	private String getAverageEfficiency(int totalEfficiency, int noOfSteps) {
 		int average = totalEfficiency / noOfSteps;
 		return average + "%";
 	}
 	
 	
-	@Override
-	protected void onPause(){
-		// TODO Auto-generated method stub
-				super.onPause();
-				finish();
-	}
-
-		
 	
 
 
