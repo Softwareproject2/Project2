@@ -151,6 +151,24 @@ public class MotorTest extends Activity implements OnTouchListener {
 		countDownTimer.scheduleAtFixedRate(countDownTask, 0, 1000);
 
 	}
+	
+	private void getTextViews() {
+		txtStep1Efficiency = (TextView) findViewById(R.id.txt_step_1_efficiency);
+		txtStep1Efficiency.setText(getEfficiencyText(1, "-"));
+
+		txtStep2Efficiency = (TextView) findViewById(R.id.txt_step_2_efficiency);
+		txtStep2Efficiency.setText(getEfficiencyText(2, "-"));
+
+		txtStep3Efficiency = (TextView) findViewById(R.id.txt_step_3_efficiency);
+		txtStep3Efficiency.setText(getEfficiencyText(3, "-"));
+
+		txtStep4Efficiency = (TextView) findViewById(R.id.txt_step_4_efficiency);
+		txtStep4Efficiency.setText(getEfficiencyText(4, "-"));
+
+		txtAverageEfficiency = (TextView) findViewById(R.id.txt_average_efficiency);
+		txtAverageEfficiency.setText(getEfficiencyText(0, "-"));
+	}
+
 	////
 	TimerTask countDownTask = new TimerTask() {
 		int i = 0;
@@ -297,129 +315,6 @@ public class MotorTest extends Activity implements OnTouchListener {
 
 	};
 	
-	private void addImageView() {
-		
-		runOnUiThread(new Runnable() {
-
-			@Override
-			public void run() {
-
-				layout.removeAllViews();
-
-				leftMargin = (int) (leftMargin + mariginalIncrement);
-
-				if (leftMargin >= width) {
-					timer.cancel();
-
-					long stepTime = System.currentTimeMillis() - totalTime;
-
-					Log.e("Time", "Time 1 :: " + stepTime + " Touch time 1 :: "
-							+ touchTime);
-
-					firstStageEfficiency = calculatePercentage(stepTime,
-							touchTime);
-
-					txtStep1Efficiency.setText(getEfficiencyText(1,
-							String.valueOf(firstStageEfficiency) + "%"));
-					Log.e("KUJHFHURWKFHCWEFUDJ", "" + firstStageEfficiency);
-
-					txtAverageEfficiency.setText(getEfficiencyText(0,
-							getAverageEfficiency(firstStageEfficiency, 1)));
-
-					totalTime = System.currentTimeMillis();
-					// x = System.currentTimeMillis();
-					touchTime = 0;
-
-					Log.e("TOUCH CHANGE", "TOUCH CHNAGE :: " + touchTime);
-
-					timer = new Timer();
-					timer.schedule(lastTask, 0, timeInterval);
-				}
-
-				imageView = new ImageView(MotorTest.this);
-				imageView.setImageResource(R.drawable.ball);
-				LayoutParams layoutParams = new LayoutParams(
-						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-				layoutParams.leftMargin = leftMargin;
-				layoutParams.topMargin = 70;
-
-				layout.addView(imageView, layoutParams);
-
-			}
-		});
-	}
-
-	long x = 0;
-	long ix = 0;
-
-	@Override
-	public boolean onTouch(View v, MotionEvent event) {
-
-		if (event.getAction() == MotionEvent.ACTION_DOWN) {
-			x = System.currentTimeMillis();
-			Log.e("Elapsed Time", "Elapsed Time 111 :: " + x);
-		} else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-
-			for (int i = 0; i < layout.getChildCount(); i++) {
-				if (layout.getChildAt(i) instanceof ImageView) {
-
-					outRect = new Rect(leftMargin, 50, imageView.getRight(),
-							imageView.getBottom());
-
-					if (outRect
-							.contains((int) event.getX(), (int) event.getY())) {
-
-						ix = System.currentTimeMillis() - x;
-						Log.e("Elapsed Time", "Elapsed Time :: " + ix);
-
-						touchTime += ix;
-						ix = 0;
-						x = System.currentTimeMillis();
-
-						layout.setBackgroundColor(Color.GREEN);
-					} else {
-
-						layout.setBackgroundColor(Color.GRAY);
-					}
-				}
-			}
-		} else if (event.getAction() == MotionEvent.ACTION_UP) {
-			layout.setBackgroundColor(Color.GRAY);
-		}
-		return true;
-	}
-
-	/**
-	 * This timer task is used to move the ball from left to right.
-	 */
-
-	TimerTask task = new TimerTask() {
-		@Override
-		public void run() {
-			addImageView();
-		}
-	};
-
-	/**
-	 * This timer task is used to move the ball from right to left.
-	 */
-
-	TimerTask reverseTask = new TimerTask() {
-		@Override
-		public void run() {
-			addReverseImageView();
-		}
-	};
-
-	private void addReverseImageView() {
-		
-	}
-	private void addLastImageView() {
-		
-	}
-	private int calculatePercentage(){
-		
-	}
 	
 	@Override
 	public void onBackPressed(){
@@ -476,14 +371,19 @@ public class MotorTest extends Activity implements OnTouchListener {
 	}
 
 
-	
-	private String getEfficiencyText() {
-		
+	private String getEfficiencyText(int step, String efficiency) {
+		if (step == 0) {
+			return "Average Efficiency : " + efficiency;
+		} else {
+			return "Step " + step + " Efficiency : " + efficiency;
+		}
+	}
+
+	private String getAverageEfficiency(int totalEfficiency, int noOfSteps) {
+		int average = totalEfficiency / noOfSteps;
+		return average + "%";
 	}
 	
-	private String getAverageEfficiency() {
-		
-	}
 	
 	@Override
 	protected void onPause(){
