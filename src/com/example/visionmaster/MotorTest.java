@@ -606,6 +606,66 @@ public class MotorTest extends Activity implements OnTouchListener {
 			return percentage;
 		}
 	}
+	
+	/**
+	 * This method send the email Intent for the application.
+	 */
+
+	@Override
+	public void onBackPressed() {
+
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+				MotorTest.this);
+		// set title
+		alertDialogBuilder
+				.setTitle("Warning! All the saved data will be deleted.");
+
+		// set dialog message
+		alertDialogBuilder
+				.setMessage("Do you want to continue ?")
+				.setCancelable(false)
+				.setPositiveButton("Yes",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// if this button is clicked, close
+								// current activity
+								five.shutdown();
+								five.stop();
+								four.shutdown();
+								four.stop();
+								three.shutdown();
+								three.stop();
+								two.shutdown();
+								two.stop();
+								one.shutdown();
+								one.stop();
+								zero.shutdown();
+								zero.stop();
+								TexttoSpeech.shutdown();
+								TexttoSpeech.stop();
+								Intent intent = new Intent(MotorTest.this,
+										AllTest.class);
+								startActivity(intent);
+								finish();
+							}
+						})
+				.setNegativeButton("No", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// if this button is clicked, just close
+						// the dialog box and do nothing
+						dialog.cancel();
+					}
+				});
+
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
+
+	}
+	
+
 	private String getEfficiencyText(int step, String efficiency) {
 		if (step == 0) {
 			return "Average Efficiency : " + efficiency;
@@ -620,8 +680,12 @@ public class MotorTest extends Activity implements OnTouchListener {
 		return average + "%";
 	}
 	
-	
-	
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		finish();
+	}
 
 
 }
