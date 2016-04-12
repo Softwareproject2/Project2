@@ -1,6 +1,6 @@
-package com.example.project;
+package com.example.visionmaster;
 
-import com.example.project.R.id;
+import com.example.visionmaster.R.id;
 
 import android.app.Activity;
 import android.app.AlertDialog;

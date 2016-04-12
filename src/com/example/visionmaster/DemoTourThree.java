@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.visionmaster;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-import com.example.project.R.id;
+import com.example.visionmaster.R.id;
 
 public class DemoTourThree extends Activity {
 	ImageView moverightthird, moveleftthird;

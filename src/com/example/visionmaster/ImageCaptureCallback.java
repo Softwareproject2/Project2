@@ -1,4 +1,4 @@
-package com.example.project;
+package com.example.visionmaster;
 
 import java.io.File;
 import java.io.FileOutputStream;
