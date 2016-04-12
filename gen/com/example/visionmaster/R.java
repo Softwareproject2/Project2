@@ -55,12 +55,12 @@ public final class R {
         public static final int visionacuity=0x7f02001e;
     }
     public static final class id {
-        public static final int action_settings=0x7f080068;
+        public static final int action_settings=0x7f080069;
         public static final int alltestdescfirst=0x7f08000b;
         public static final int alltestdescsecond=0x7f08000c;
         public static final int alltesttitle=0x7f08000a;
-        public static final int btnnext=0x7f080067;
-        public static final int btnstop=0x7f080066;
+        public static final int btnnext=0x7f080068;
+        public static final int btnstop=0x7f080067;
         public static final int button1=0x7f08004e;
         public static final int button2=0x7f08004f;
         public static final int button3=0x7f080050;
@@ -83,18 +83,19 @@ public final class R {
         public static final int failedtest=0x7f08003d;
         public static final int finish=0x7f080042;
         public static final int gotit=0x7f08000d;
-        public static final int home=0x7f080059;
+        public static final int home=0x7f08005a;
         public static final int image=0x7f080056;
         public static final int image1=0x7f080017;
         public static final int image2=0x7f08004d;
-        public static final int image3=0x7f080057;
+        public static final int image3=0x7f080058;
         public static final int image4=0x7f080018;
+        public static final int imageText=0x7f080057;
         public static final int imageV=0x7f08001d;
         public static final int imageeyegrid=0x7f080024;
         public static final int imagelefteyegrid=0x7f080026;
         public static final int imagerighteyegrid=0x7f080022;
         public static final int linear=0x7f080033;
-        public static final int linearBackground=0x7f08005b;
+        public static final int linearBackground=0x7f08005c;
         public static final int linearButton=0x7f080035;
         public static final int linearImage=0x7f080055;
         public static final int linearLayout=0x7f08002d;
@@ -119,7 +120,7 @@ public final class R {
         public static final int retake=0x7f080019;
         public static final int saveandsubmit=0x7f08002b;
         public static final int savenewpassword=0x7f080054;
-        public static final int seeText=0x7f080065;
+        public static final int seeText=0x7f080066;
         public static final int sendemail=0x7f08002f;
         public static final int settings=0x7f08002c;
         public static final int startTest=0x7f080031;
@@ -139,19 +140,19 @@ public final class R {
         public static final int textTitlethird=0x7f080025;
         public static final int textView1=0x7f080044;
         public static final int textView2=0x7f080045;
-        public static final int textViewdetail=0x7f080058;
+        public static final int textViewdetail=0x7f080059;
         public static final int textViewsLayout=0x7f08004c;
-        public static final int totest=0x7f08005a;
+        public static final int totest=0x7f08005b;
         public static final int tutorial=0x7f08000e;
-        public static final int tv1=0x7f08005c;
-        public static final int tv2=0x7f08005e;
-        public static final int tv3=0x7f080060;
-        public static final int tv4=0x7f08005f;
-        public static final int tv5=0x7f080061;
-        public static final int tv6=0x7f080062;
-        public static final int tv7=0x7f080063;
-        public static final int tv8=0x7f080064;
-        public static final int tv9=0x7f08005d;
+        public static final int tv1=0x7f08005d;
+        public static final int tv2=0x7f08005f;
+        public static final int tv3=0x7f080061;
+        public static final int tv4=0x7f080060;
+        public static final int tv5=0x7f080062;
+        public static final int tv6=0x7f080063;
+        public static final int tv7=0x7f080064;
+        public static final int tv8=0x7f080065;
+        public static final int tv9=0x7f08005e;
         public static final int txt_average_efficiency=0x7f08003a;
         public static final int txt_count_down=0x7f080034;
         public static final int txt_step_1_efficiency=0x7f080036;
@@ -197,9 +198,10 @@ public final class R {
         public static final int sendemailxml=0x7f030020;
         public static final int settinginflate=0x7f030021;
         public static final int showimageonclick=0x7f030022;
-        public static final int thirdpage=0x7f030023;
-        public static final int visiondialoginflate=0x7f030024;
-        public static final int visualacuity=0x7f030025;
+        public static final int splash=0x7f030023;
+        public static final int thirdpage=0x7f030024;
+        public static final int visiondialoginflate=0x7f030025;
+        public static final int visualacuity=0x7f030026;
     }
     public static final class menu {
         public static final int main_page=0x7f070000;
