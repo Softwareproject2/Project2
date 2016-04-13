@@ -112,56 +112,7 @@ public class LoginScreen extends Activity {
 								.toString().trim());
 						spedit.commit();
 
-						AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-								LoginScreen.this);
-						// set title
-
-						// set dialog message
-						alertDialogBuilder
-								.setMessage(
-										"Do you want to provide permission to record your location?")
-								.setCancelable(false)
-								.setPositiveButton("Yes",
-										new DialogInterface.OnClickListener() {
-											public void onClick(
-													DialogInterface dialog,
-													int id) {
-												Intent intent = new Intent(
-														LoginScreen.this,
-														MainPage.class);
-												startActivity(intent);
-											}
-										})
-								.setNegativeButton("No",
-										new DialogInterface.OnClickListener() {
-											public void onClick(
-													DialogInterface dialog,
-													int id) {
-												// if this button is clicked,
-												// just close
-												// the dialog box and do nothing
-												Intent intent = new Intent(
-														LoginScreen.this,
-														MainPage.class);
-												startActivity(intent);
-												dialog.cancel();
-											}
-										});
-
-						// create alert dialog
-						AlertDialog alertDialog = alertDialogBuilder.create();
-
-						// show it
-						alertDialog.show();
-
-					}
-				} else if (saveandsubmit.getText().toString().equals("Login")) {
-					Intent intent = new Intent(LoginScreen.this, MainPage.class);
-					startActivity(intent);
-				} else {
-
-				}
-			}
+						///////here add gps coding
 		});
 	}
 
