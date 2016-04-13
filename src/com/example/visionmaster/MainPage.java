@@ -146,7 +146,7 @@ public class MainPage extends Activity {
 		welcomeText.setText("Welcome "
 				+ LoginScreen.shared.getString("PATIENT_ID", null));
 		
-		
+		// this event handler is applied on start test button to start the test 
 		startTest.setOnTouchListener(new OnTouchListener() {
 
 			@Override
@@ -199,7 +199,7 @@ public class MainPage extends Activity {
 		});
 
 	}
-	@Override
+	@Override // this method is to provide the functionality on the back button of device
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
