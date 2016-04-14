@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-import com.example.project.R.id;
+import com.example.visionmaster.*;
 
 public class DemoTourFive extends Activity {
 	ImageView moveleftfive;
@@ -18,7 +18,7 @@ public class DemoTourFive extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.demotourfive);
 
-		moveleftfive = (ImageView) findViewById(id.moveleftfive);
+		moveleftfive = (ImageView) findViewById(R.id.moveleftfive);
 
 		moveleftfive.setOnClickListener(new OnClickListener() {
 
