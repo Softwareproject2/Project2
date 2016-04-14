@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-import com.example.visionmaster.R.id;
+import com.example.visionmaster.*;
 
 public class DemoTourThree extends Activity {
 	ImageView moverightthird, moveleftthird;
@@ -17,8 +17,8 @@ public class DemoTourThree extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.demotourthree);
-		moverightthird = (ImageView) findViewById(id.moverightthird);
-		moveleftthird = (ImageView) findViewById(id.moveleftthird);
+		moverightthird = (ImageView) findViewById(R.id.moverightthird);
+		moveleftthird = (ImageView) findViewById(R.id.moveleftthird);
 		moverightthird.setOnClickListener(new OnClickListener() {
 
 			@Override
