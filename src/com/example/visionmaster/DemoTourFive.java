@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-import com.example.visionmaster.R.id;
+import com.example.project.R.id;
 
 public class DemoTourFive extends Activity {
 	ImageView moveleftfive;

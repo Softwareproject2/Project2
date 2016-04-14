@@ -1,6 +1,6 @@
 package com.example.visionmaster;
 
-import com.example.visionmaster.R.id;
+import com.example.visionmaster.*;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,8 +17,8 @@ public class DemoTourFour extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.demotourfour);
-		moverightfourth = (ImageView) findViewById(id.moverightfourth);
-		moveleftfourth = (ImageView) findViewById(id.moveleftfourth);
+		moverightfourth = (ImageView) findViewById(R.id.moverightfourth);
+		moveleftfourth = (ImageView) findViewById(R.id.moveleftfourth);
 		moverightfourth.setOnClickListener(new OnClickListener() {
 
 			@Override
