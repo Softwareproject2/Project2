@@ -1,3 +1,9 @@
+/*
+ * This file is not the testing file. This file contains the code for event handling. When all test
+ * are shown on screen it handle the on click even because of which we can choose the particular test to
+ * implement. 
+ */
+
 package com.example.visionmaster;
 
 import com.example.visionmaster.R.id;
